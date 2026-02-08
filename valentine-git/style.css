@@ -1,0 +1,273 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    background-image: url("tulip-background.jpg");
+    font-family: "Pangolin", sans-serif;
+}
+
+/* Envelope Screen */
+#envelope_container {
+    /* text-align: center;
+    cursor: pointer; */
+    text-align: center;
+    cursor: pointer;
+    display: none;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#envelope {
+    width: 300px;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+}
+
+#letter-container {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter-window{
+    width: 90vw;
+    max-width: 800px;
+    background-size: min(120%, 900px) auto;
+
+    aspect-ratio: 3/2;
+    padding: 20px 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    background-image: url("flower_scroll.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 12px;
+    gap: 1px;
+    padding-top: 120px;
+
+    transform: scale(1.2);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.letter-window.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+h1 {
+    font-size: 30px;
+    margin: 0;
+}
+
+p {
+    font-size: 60px;
+}
+
+/* Us_gif */
+
+.smile-us {
+    width: min(220px, 60vw);
+    margin: 10px 0;
+    transition: width 0.4s ease;
+}
+
+.letter-window.final .us-gif {
+    width: 180px;
+}
+.letter-window.final .legend {
+    border: 6px solid #ff9acb; /* pink border */
+    border-radius: 18px;
+    padding: 6px; /* space between gif and border */
+    background: white; /* makes border look clean */
+    box-shadow:
+        0 0 12px rgba(255, 150, 200, 0.6),
+        0 0 24px rgba(255, 100, 170, 0.4);
+}
+
+.letter-window.final .gif-container {
+    margin-top: -95px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+}
+
+.no-wrapper {
+    position: relative;
+}   
+
+.btn {
+    width: 120px;
+    cursor: pointer;   
+    user-select: none;
+}
+
+.yes-btn, .no-btn {
+    width: 300px;
+    height: auto;
+    display: inline-block;
+}
+
+.yes-btn {
+    position: relative;
+    z-index: 2;
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+}
+
+.no-btn  {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.15s ease;
+    cursor: default;
+}
+.final-text-top{
+    font-size: 22px;
+    line-height: 1.4;
+    text-align: center;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(232, 163, 220);
+    border-radius: 12px;
+    margin-bottom: 100px;
+}
+
+.final-text{
+    font-size: 22px;
+    line-height: 1.4;
+    text-align: center;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(218, 93, 197);
+    border-radius: 12px;
+    margin-bottom: 100px;
+}
+
+.gif-container {
+    position: relative;
+    height: 230px; /* controls vertical space */
+    
+}
+
+.gif-container img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.legend {
+    display: none;
+    width: min(220px, 60vw);
+    height: auto;
+    transform: translateY(-60px);
+}
+
+/* Intro Splash Screen */
+#intro-screen {
+    position: fixed;
+    inset: 0;
+    background-color: black; /* fallback while gif loads */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#intro-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* fills screen without distortion */
+    transition: opacity 0.6s ease;
+}
+
+/* Loading UI */
+#loading-wrapper {
+    position: absolute;
+    bottom: 15%;
+    width: 60%;
+    max-width: 400px;
+    text-align: center;
+    z-index: 2;
+}
+
+#loading-text {
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: white;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+/* Loading bar */
+#loading-bar-container {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#loading-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff6fa1, #ffd1e8);
+    border-radius: 20px;
+}
+
+/* Glow when complete */
+#loading-bar.complete {
+    box-shadow:
+        0 0 16px rgba(255, 180, 220, 0.8),
+        0 0 32px rgba(255, 120, 180, 0.6);
+}
+
+#photo-shower-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none; /* allows clicks to pass through */
+    overflow: hidden;
+    z-index: 1000; /* above everything else */
+}
+
+.falling-photo {
+    position: absolute;
+    top: -100px; /* start above the screen */
+    animation: fall linear forwards;
+    width: 180px; /* default size, can randomize in JS */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.8;
+    }
+}
