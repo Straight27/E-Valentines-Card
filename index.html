@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Letter</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Intro Splash Screen -->
+    <div id="intro-screen">
+        <img src="codefall.gif" alt="Intro GIF">
+
+        <div id="loading-wrapper">
+        <div id="loading-text">LOADING...</div>
+        <div id="loading-bar-container">
+            <div id="loading-bar"></div>
+        </div>
+    </div>
+    </div>
+    <!--Envelope Screen-->
+    <div id="envelope_container">
+        <img src="closed-en.png" alt="Envelope" id="envelope">
+        <p> ⋆˚࿔ Jodi 𝜗𝜚˚⋆</p>
+    </div>
+
+    <!--Letter Screen-->
+    <div id="letter-container">
+        <div class="letter-window">
+
+           
+
+            <h1 id="letter-title">Will you be my Valentine?</h1>
+            <p id="final-text-top" class="final-text-top" style="display: none;">
+                I knew you'd say yes! Can't wait to spend Valentines with you 💖
+
+            </p>
+
+            <div class="gif-container">
+                <img src="smile_us.gif" class="smile-us" alt="Smiling Us" />
+                <img src="legend.webp" class="legend" alt="Legend" />
+            </div>
+
+            <div class="buttons" id="letter-buttons">
+                <img src="yes_button.png" class=" btn yes-btn" alt="Yes Button" />
+
+                <div class="no-wrapper">
+                    <img src="no_button.png" class="btn no-btn" alt="No Button" />
+                </div>
+            </div>
+
+            <p id="final-text" class="final-text" style="display: none;">
+                Reservations @ Porta Bello, 7:00 PM. So excited!!
+            </p>
+        </div>
+    </div>
+
+    <div id="photo-shower-container"></div>
+
+    <script src="script.js"></script>
+
+    <audio id="jeopardy" loop>
+        <source src="jeopardy.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="yay">
+        <source src="yay.mp3" type="audio/mpeg">
+    </audio>
+</body>
+
+</html>
